@@ -3,11 +3,14 @@
 
 <h1>This is a sample Template</h1>
 <center><h1>home!</h1></center>
-<div>
-    <a href="{% url 'create-room' %}">create a room</a>
+<div><center>
+    <a href="{% url 'create-room' %}">create a room</a></center>
+    <hr>
     <div>
         {% for room in rooms %}
         <div>
+            <a href="{% url 'update-room' room.id %}">Edit</a>
+            <a href="{% url 'delete-room' room.id %}">| Delete</a>
             <small>{{room.topics.name}}</small>
             <br>
             <span>@{{room.host.username}}</span>
