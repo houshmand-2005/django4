@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% block content%}
+
+<h1>This is a sample Template</h1>
+<center><h1>home!</h1></center>
+<div><center>
+    <a href="{% url 'create-room' %}">create a room</a></center>
+    <hr>
+    <div>
+        {% for room in rooms %}
+        <div>
+            <a href="{% url 'update-room' room.id %}">Edit</a>
+            <a href="{% url 'delete-room' room.id %}">| Delete</a>
+            <small>{{room.topics.name}}</small>
+            <br>
+            <span>@{{room.host.username}}</span>
+            <h3>{{room.id}} -- <a href="{% url 'room' room.id %}">{{room.name}}</h3></a>
+            <hr>
+            
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %} 
