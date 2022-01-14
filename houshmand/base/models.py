@@ -16,6 +16,10 @@ class Room(models.Model):
     # participants =
     updates = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-updates','-created']
+    
     def __str__(self):
         return self.name
 class Messages(models.Model):
