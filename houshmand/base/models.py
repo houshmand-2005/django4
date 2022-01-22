@@ -7,7 +7,7 @@ class topic(models.Model):
     name = models.CharField(max_length=200)
     def __str__(self):
         return self.name
-        
+
 class Room(models.Model):
     host = models.ForeignKey(User, on_delete=models.SET_NULL , null=True)
     topics = models.ForeignKey(topic, on_delete=models.SET_NULL , null=True)
