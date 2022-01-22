@@ -1,4 +1,53 @@
-<a href="/">
-    <h1>LOGO</h1>
-</a>
+{% load static %}
+<!-- <div>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li>
+            <button type="button" class="btn btn-dark"><a href="{% url 'create-room' %}">create a room</a></span></button>
+            </li>
+            </ul>
+      <form class="d-flex" method="GET" action="{% url 'home' %}">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" >
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 <hr>
+</div>
+
+ -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/logo.svg' %}" alt=""width="68" height="51" alt=""></a>
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'create-room' %}">create a room</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <form class="d-flex" method="GET" action="{% url 'home' %}">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<br>
