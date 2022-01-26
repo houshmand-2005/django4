@@ -1,5 +1,76 @@
 {% extends 'main.html' %}
 {% block content%}
-<div style="color:azure">
-<center><h1>{{room.name}}</h1></center></div>
+<head>
+<style>
+    hr{
+        border: none;
+        border-top-color: #00fff5;
+        border-top-style: dashed;
+        border-top-width: 3px;
+        }
+    .shads:hover{
+        box-shadow: 2.6px 5.1px 5.1px #555d66;
+    }
+</style>
+</head>
+<div class="row">
+    <div class="col-8">
+        <div style="color:azure">
+        <center><h1>{{room.name}}</h1></center>
+        <div style="margin-left:10px"><p>{{room.deprecation}}</p></div>
+        <hr>
+        <h3>Conversation:</h3>
+        <div class="container">
+            
+            <div>
+                {% for message in room_messages %}
+                <div class="shads">
+                    <div class="alert alert-info" role="alert" style="background-color: #00ADB5">
+                        <p class="mb-0" ><b style="font-size:12px"><span>@{{message.user}} {{message.created|timesince}} ago </span></b>
+                            {% if request.user == message.user %}
+                            <b><a  style="color: #393E46;font-size:12px;" href="{% url 'delete-message' message.id %}"> | Delete</a></b>{% endif %}
+                        </p>
+                        <h4 class="alert-heading" ><p style="color: #222831">{{message.body}}</p>
+                            
+                      </div>
+                    
+                      
+                  
+                </div>
+                {% endfor %}
+            </div>
+
+    </div>
+    <br>
+        {% if request.user.is_authenticated %}
+        <form method="POST">
+            {% csrf_token %}
+            <hr>
+            <div class="input-group mb-3" style='margin-left: 20px;margin-right: 25px;background-color: rgb(51, 49, 49);'>
+            <input type="text" class="form-control"  name="body" placeholder="Write a message..." aria-label="Write a message..."  aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Button</button>
+          </div>
+        </form>
+        <br>
+        {% else %}
+        <hr>
+        <div class="alert alert-warning" role="alert" style='margin-left: 10px;'>
+            To send a message, please <a href="{% url 'login' %}" class="alert-link">login</a>
+          </div>
+        {% endif %}
+        </div></div>
+
+        <div class="col-3" style="margin-left:30px">
+            <div class="list-group" >
+                <button type="button" class="list-group-item list-group-item-action " style="background-color:#393E46;color:aliceblue" aria-current="true">
+                  participants
+                </button>
+                </div>
+                {% for user in participants %}
+                <a href="#"><button type="button" class="list-group-item list-group-item-action"  style="background-color:#00ADB5">@{{user.username}}</button></a>
+                {% endfor %}
+              </div>
+        </div>
+
 {% endblock content %}
+  

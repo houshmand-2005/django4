@@ -1,8 +1,8 @@
 {% extends 'main.html' %}
 {% block content %}
-<body">
+<body>
   
-
+{% if Page != login %}}
 <div class="container">
   <div class="row">
     <div class="col">
@@ -12,7 +12,7 @@
       <form method="POST" action="">
       <div class="input-group mb-3">
         {% csrf_token %}
-  <input type="text"  class="form-control" placeholder="Email" aria-label="Email" name="username"></div>
+  <input type="text"  class="form-control" placeholder="Username" aria-label="Username" name="username"></div>
   <div class="input-group mb-3">
 <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password"></div>
 <div class="vstack gap-2 col-md-5 mx-auto">
@@ -21,13 +21,44 @@
 </form>
   <br>
   <div style="color:azure">
-  <small>You don't have an account? <span style="color:#00FFF5"><a href=""> Create an account</a></small><br></span>
-  <span style="color:#00FFF5"><a href=""><small>
+  <small>You don't have an account? <span style="color:#00FFF5"><a href="{% url 'register' %}"> Create an account</a></small><br></span>
+  <span style="color:#00FFF5"><a href="#"><small>
   forgot password?</small></a></div></span>
 
     </div>
     <div class="col">
     </div>
   </div>
+{% else %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-5">
+      <h2 style="color:azure">Signup:</h2>
+      <form method="POST" action="">
+      <div class="input-group mb-3">
+        {% csrf_token %}
+        <div style="color:azure">
+        {{form.as_p}}
+      </div>
+        <div class="vstack gap-2 col-md-5 mx-auto">
+          <button type="submit" value="Login" class="btn btn-secondary">Signup</button>
+          </div>
+        </form>
+        <br>
+        <p>..</p>
+  <div style="color:azure">
+  <small>Already signed up yet?<span style="color:#00FFF5"><a href="{% url 'login' %}">login</a></small><br></span>
+  <span style="color:#00FFF5"><a href="#"><small>
+  forgot password?</small></a></span></div>
+</div>
+    </div>
+    <div class="col">
+    </div>
+  </div></div>
+{% endif %}
+  
 </body>
+
 {% endblock content %}

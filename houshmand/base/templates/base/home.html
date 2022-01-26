@@ -3,49 +3,32 @@
 {% block content%}
 
 <head>
-  
+<style>
+  .shads:hover{
+    box-shadow: 2.6px 5.1px 5.1px #555d66;
+  }
+</style>
 
 </head>
 <div class="row" style="background-color:#222831;">
-    <div class="col-4">
-        <div class="list-group" style="margin-left: 10px;">
-            <button type="button" class="list-group-item list-group-item-action " style="background-color:#393E46;color:aliceblue" aria-current="true">
-              Topics
-            </button>
-            <div>            <a href="{% url 'home' %}"><button type="button" class="list-group-item list-group-item-action"  style="background-color:#00ADB5" >All</button></a>
-            </div>
-            {% for topic in topics %}
-            <a href="{% url 'home' %}?q={{topic.name}}"><button type="button" class="list-group-item list-group-item-action"  style="background-color:#00ADB5">{{topic.name}}</button></a>
-            {% endfor %}
-          </div>
+    <div class="col-sm-3">
+      {% include 'base/topic_component.html' %}
     </div>
-    <div class="col-7">
+    <div class="col-sm-5" style="margin-left:-17px">
         <div class="container">
         <div>
           <h5 style="color:azure">{{room_count}} rooms available</h5> 
 
             <div>
-                {% for room in rooms %}
-                <div>
-                    <div class="alert alert-info" role="alert" style="background-color: #00ADB5">
-                      <!-- {{room.id}} . -->
-                        <h4 class="alert-heading" ><h3><a href="{% url 'room' room.id %}" style="color: #222831">{{room.name}}</h3></a>
-                            
-                        <p style="color: #222831"><a href="{% url 'update-room' room.id %}">Edit</a>
-                            <a href="{% url 'delete-room' room.id %}">| Delete</a></p>
-                        <hr>
-                        <p class="mb-0"><b><span>@{{room.host.username}}</span></b>
-                            <a href="{% url 'home' %}?q={{room.topics.name}}"><small>{{room.topics.name}}</small></h4></a></p>
-                      </div>
-                    
-                    
-                </div>
-                {% endfor %}
+              {% include 'base/feed_component.html' %}
             </div>
         </div>
       </div>
       </div>
-    <div class="col-1">
+    <div class="col-sm-4" style="color:azure;margin-left: 2px;">
+      
+      {% include 'base/activity_component.html' %}
+      </div>
       
     </div>
   </div>
