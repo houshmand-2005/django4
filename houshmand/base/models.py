@@ -13,7 +13,7 @@ class Room(models.Model):
     topics = models.ForeignKey(topic, on_delete=models.SET_NULL , null=True)
     name = models.CharField(max_length=200)
     deprecation = models.TextField(null=True, blank=True)
-    # participants =
+    participants = models.ManyToManyField(User, related_name='participants',blank=True)
     updates = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
     
@@ -28,7 +28,11 @@ class Messages(models.Model):
     body = models.TextField()
     updates = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
-    def __str___(self):
+    
+    class Meta:
+        ordering = ['-updates','-created']
+    
+    def __str__(self):
         return self.body[0:50]
         
     
