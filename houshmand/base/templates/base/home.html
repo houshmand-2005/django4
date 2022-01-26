@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content%}
+
+<head>
+<style>
+  .shads:hover{
+    box-shadow: 2.6px 5.1px 5.1px #555d66;
+  }
+</style>
+
+</head>
+<div class="row" style="background-color:#222831;">
+    <div class="col-sm-3">
+      {% include 'base/topic_component.html' %}
+    </div>
+    <div class="col-sm-5" style="margin-left:-17px">
+        <div class="container">
+        <div>
+          <h5 style="color:azure">{{room_count}} rooms available</h5> 
+
+            <div>
+              {% include 'base/feed_component.html' %}
+            </div>
+        </div>
+      </div>
+      </div>
+    <div class="col-sm-4" style="color:azure;margin-left: 2px;">
+      
+      {% include 'base/activity_component.html' %}
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+{% endblock content %} 
