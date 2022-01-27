@@ -1,14 +1,16 @@
 <h4>Recent Activity : </h4>
 {% for messege in room_messages %}
-      <div class="shads">
-      <a href="#" class="list-group-item list-group-item-action" style="background-color:#212529;color:azure;">
+      <div class="shads" style="background-color:#212529">
+        <a href="{% url 'userProfile' messege.user.id %}">
         <div class="d-flex w-100 justify-content-between">
+          
           <span style="font-size:12px;color:#055160;margin-left:-2px;" class="mb-1">@{{messege.user}} {{messege.created|timesince}}</span>
           
-        </div>
+        </div></a>
+        <a href="{% url 'room' messege.room.id %}">
         <small class="text-muted">replied to "{{messege.room}}" :</small>
         <p style="margin-left:5px" class="mb-1"> {{messege}}</p>
-      </div>
+      </div></a>
       </a>
       <br>
         

@@ -26,7 +26,7 @@
                 {% for message in room_messages %}
                 <div class="shads">
                     <div class="alert alert-info" role="alert" style="background-color: #00ADB5">
-                        <p class="mb-0" ><b style="font-size:12px"><span>@{{message.user}} {{message.created|timesince}} ago </span></b>
+                        <p class="mb-0" ><a href="{% url 'userProfile' message.user.id %}"><b style="font-size:12px"><span>@{{message.user}} {{message.created|timesince}} ago </span></b></a>
                             {% if request.user == message.user %}
                             <b><a  style="color: #393E46;font-size:12px;" href="{% url 'delete-message' message.id %}"> | Delete</a></b>{% endif %}
                         </p>
