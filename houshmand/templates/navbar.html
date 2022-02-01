@@ -17,7 +17,7 @@
         {% if request.user.is_authenticated %}
 
         <li class="nav-item">
-          <a style="color:#00ADB5" class="nav-link" href="#">Hello {{request.user}}</a>
+          <a style="color:#00ADB5" class="nav-link" href="{% url 'userProfile' user.id %}">Hello {{request.user}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'logout' %}">Logout</a>

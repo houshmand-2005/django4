@@ -2,9 +2,9 @@
     <button type="button" class="list-group-item list-group-item-action " style="background-color:#393E46;color:aliceblue" aria-current="true">
       Topics
     </button>
-    <div>            <a href="{% url 'home' %}"><button type="button" class="list-group-item list-group-item-action"  style="background-color:#00ADB5" >All</button></a>
-    </div>
+            <a href="{% url 'home' %}"><button type="button" class="list-group-item list-group-item-action"  style="background-color:#00ADB5" >All</button></a>
     {% for topic in topics %}
-    <a href="{% url 'home' %}?q={{topic.name}}"><button type="button" class="list-group-item list-group-item-action"  style="background-color:#00ADB5">{{topic.name}}</button></a>
+    <a href="{% url 'home' %}?q={{topic.name}}"><button type="button" class="list-group-item list-group-item-action"  style="background-color:#00ADB5">{{topic.name}}<span class="topic_count">({{topic.room_set.all.count}})</span></button></a>
     {% endfor %}
   </div>
+  

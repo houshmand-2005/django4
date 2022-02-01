@@ -2,21 +2,21 @@
 {% block content %}
 <body>
   
-{% if Page != login %}}
+{% if Page != login %}
 <div class="container">
   <div class="row">
     <div class="col">
     </div>
     <div class="col-5">
-      <h2 style="color:azure">Login:</h2>
+      <h2 style="color:azure"> Login:</h2>
       <form method="POST" action="">
       <div class="input-group mb-3">
         {% csrf_token %}
   <input type="text"  class="form-control" placeholder="Username" aria-label="Username" name="username"></div>
   <div class="input-group mb-3">
 <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password"></div>
-<div class="vstack gap-2 col-md-5 mx-auto">
-  <button type="submit" value="Login" class="btn btn-secondary">Login</button>
+<div class="vstack gap-2 col-md-2 mx-auto">
+  <button type="submit" value="Login" class="btn btn-secondary"> Login</button>
   </div>
 </form>
   <br>
@@ -42,8 +42,9 @@
         <div style="color:azure">
         {{form.as_p}}
       </div>
-        <div class="vstack gap-2 col-md-5 mx-auto">
-          <button type="submit" value="Login" class="btn btn-secondary">Signup</button>
+        <div class="vstack gap-2 col-md-2 mx-auto">
+
+          <button type="submit" value="Login" class="btn btn--dark">Signup</button>
           </div>
         </form>
         <br>

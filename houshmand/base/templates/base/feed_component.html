@@ -8,8 +8,8 @@
 <a href="{% url 'delete-room' room.id %}">| Delete</a></p>
 <hr>
 {% endif %}
-<p class="mb-0"><b><a href="{% url 'userProfile' room.host.id %}"><span>@{{room.host.username}}</span></b></a>
-<a href="{% url 'home' %}?q={{room.topics.name}}"><small>{{room.topics.name}}</small></h4></a></p>
+<p class="mb-0"><b><a href="{% url 'userProfile' room.host.id %}"><span>@{{room.host.username}} </span></b></a>
+ {{room.participants.all.count}} Joined <a href="{% url 'home' %}?q={{room.topics.name}}"><small style="margin-left:5px;color:#222831"><b> {{room.topics.name}}</b></small></h4></a></p>
 </div>
                     
                     
