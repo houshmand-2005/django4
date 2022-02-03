@@ -7,4 +7,5 @@
     <a href="{% url 'home' %}?q={{topic.name}}"><button type="button" class="list-group-item list-group-item-action"  style="background-color:#00ADB5">{{topic.name}}<span class="topic_count">({{topic.room_set.all.count}})</span></button></a>
     {% endfor %}
   </div>
-  
+  <br>
+  <a href="{% url 'topics'%}"><button type="button" class="btn" style="color: #00FFF5;" >See All Topics</button></a>

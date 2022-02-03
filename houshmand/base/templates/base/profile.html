@@ -7,7 +7,13 @@
     <div class="col-3">
         {% include 'base/topic_component.html' %}
     </div>
-    <div class="col-6">        <h2 style="color:azure" >{{user.username}}'s rooms</h2>
+    <div class="col-6">        <h2 style="color:azure" >{{user.username}}'s rooms</h2>      
+        {% if request.user == user %}
+        <span style="color:#00FFF5">
+            
+        <a href="{% url 'update-user' %}">Edit Profile</a> 
+    </span>
+    {% endif %}
 
         {% include 'base/feed_component.html' %}</div>
     <div class="col-3" style="color:azure">

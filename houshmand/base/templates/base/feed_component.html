@@ -6,8 +6,13 @@
 {% if request.user == room.host %}
 <p style="color: #222831"><a href="{% url 'update-room' room.id %}">Edit</a>
 <a href="{% url 'delete-room' room.id %}">| Delete</a></p>
-<hr>
+
 {% endif %}
+
+{% if room.deprecation != null %}
+<p style="color: #4d5666">{{room.deprecation}}</p>
+{% endif %}
+<hr>
 <p class="mb-0"><b><a href="{% url 'userProfile' room.host.id %}"><span>@{{room.host.username}} </span></b></a>
  {{room.participants.all.count}} Joined <a href="{% url 'home' %}?q={{room.topics.name}}"><small style="margin-left:5px;color:#222831"><b> {{room.topics.name}}</b></small></h4></a></p>
 </div>

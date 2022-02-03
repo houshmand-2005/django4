@@ -17,7 +17,9 @@
     <div class="col-8">
         <div style="color:azure">
         <center><h1>{{room.name}}</h1></center>
-        <div style="margin-left:10px"><p>{{room.deprecation}}</p></div>
+        {% if room.deprecation != null %}
+
+        <div style="margin-left:10px"><p>{{room.deprecation}}</p></div>{% endif %}
         <hr>
         <h3>Conversation:</h3>
         <div class="container">

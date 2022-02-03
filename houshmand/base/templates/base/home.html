@@ -7,33 +7,54 @@
   .shads:hover{
     box-shadow: 2.6px 5.1px 5.1px #555d66;
   }
+@media screen and (max-width: 900px) {
+  .col-sm-4 {
+    display: none;
+  }
+  }
+@media screen and (max-width: 605px) {
+  .col-sm-3{
+    display: none;
+  }
+  }
+@media screen and (max-width: 605px) {
+  .mobfx{
+    display: inline-block;
+  }
+  }
+  @media screen and (min-width: 900px) {
+  .mobfx{
+    display: none;
+  }
+  }
 </style>
 
 </head>
+<div class="mobfx">
+  <a href="{% url 'activity' %}"><button type="button" class="btn" style="color: #00FFF5;margin-left: 70px;">See Activities</button></a>
+  <a href="{% url 'topics'%}"><button type="button" class="btn" style="color: #00FFF5;margin-left: 80px;" >See Topics</button></a>
+</div>
+<div class='container-fluid' style="margin-top: 10px;">
 <div class="row" style="background-color:#222831;">
     <div class="col-sm-3">
       {% include 'base/topic_component.html' %}
     </div>
     <div class="col-sm-5" style="margin-left:-17px">
-        <div class="container">
-        <div>
+        <div class="container-fluid">
           <h5 style="color:azure">{{room_count}} rooms available</h5> 
-
-            <div>
               {% include 'base/feed_component.html' %}
-            </div>
-        </div>
       </div>
       </div>
-    <div class="col-sm-3" style="color:azure">
-
+    <div class="col-sm-4" style="color:azure">
       {% include 'base/activity_component.html' %}
       </div>
       
     </div>
-  </div>
+</div>
+<br>
+<div class="text-center p-3" style="background-color:#212529;color: azure">
+  © 2022 Copyright:
+  <span style="color: #00ADB5;"><a href="{% url 'home' %}">Lerning room</a></span>
+</div>
 
-
-
-
-{% endblock content %} 
+{% endblock content %}

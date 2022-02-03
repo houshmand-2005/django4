@@ -11,8 +11,8 @@ class Topic(models.Model):
 class Room(models.Model):
     host = models.ForeignKey(User, on_delete=models.SET_NULL , null=True)
     topics = models.ForeignKey(Topic, on_delete=models.SET_NULL , null=True)
-    name = models.CharField(max_length=200)
-    deprecation = models.TextField(null=True, blank=True)
+    name = models.CharField(max_length=100)
+    deprecation = models.TextField(null=True, blank=True,max_length=100)
     participants = models.ManyToManyField(User, related_name='participants',blank=True)
     updates = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -25,7 +25,7 @@ class Room(models.Model):
 class Messages(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    body = models.TextField()
+    body = models.TextField(max_length=120)
     updates = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
     
