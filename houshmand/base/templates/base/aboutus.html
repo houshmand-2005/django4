@@ -1,0 +1,40 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'indexpage' %}"><img src="{% static 'img/logo.svg' %}" alt=""width="68" height="51" alt=""></a>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">ورود به بخش اتاق ها</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'artic' %}">بخش نقشه راه</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<body style="background-color:#222831;">
+    <center>
+    <h1 style="color: aliceblue;">درباره ما!</h1>
+    <img src="{% static 'img/aboutus.png'%}" class="img-fluid" alt="Responsive image">
+</center>
+    <p style="direction: rtl;color: aliceblue;">
+    خوب این یک سایت کمک یار شماست همینطور که میبینید این سایت روز به روز در حال پیشرفته و شما هم میتونید با فعالیت خودتون و کمک به جامعه خودتون این سایت رو هم پیشرفته تر کنید.
+این سایت از منابعی برای نقشه راه استفاده کرده است که منبع باز میباشد و روز به روز در حال اپدیت است شما هم نیز میتونید کمک کننده این جریان باشید.
+خوب این پروژه هم منبع باز میباشد میتونید به من هم در ساخت این وب سایت کمک کنید:)
+<a href="https://github.com/houshmand-2005/">لینک گیتهاب من</a>
+هر وقت سوالی برای شما پیش امد میتونید در بخش اتاق ها اون رو مطرح کنید و جواب مناسبی بگیرید اما اگر در مورد مطلب انتخبی شما مطلبی نبود میتونید یه اتاق به موضوع مربوطه درست کنید و اونجا دوباره پیشرفت خودتون رو اغاز کنید
+ممنون از شما که با ما هستید.❤️❤️
+</p>
+<div class="text-center p-3" style="background-color:#212529;color: azure">
+    © 2022 Copyright:
+    <span style="color: #00ADB5;"><a href="{% url 'indexpage' %}">اتاق یادگیری</a></span>
+</body>
+</html>

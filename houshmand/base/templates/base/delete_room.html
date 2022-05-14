@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+{% block content %}
+<center>
+<form method="post" action="" style="color:azure">{% csrf_token %}
+    <p>ایا مطمنید برای پاک کردن "{{obj}}"?</p>
+    <a href="{{request.META.HTTP_REFERER}}">بازگشت</a>
+    <input type="submit" value="cofirm">
+</form>
+</center>
+{% endblock content %}

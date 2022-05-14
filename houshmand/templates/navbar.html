@@ -1,0 +1,39 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/logo.svg' %}" alt=""width="68" height="51" alt=""></a>
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'create-room' %}">ساخت اتاق</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'indexpage' %}">نقشه راه</a>
+        </li>
+        
+        {% if request.user.is_authenticated %}
+
+        <li class="nav-item">
+          <a style="color:#00ADB5" class="nav-link" href="{% url 'userProfile' user.id %}">سلام {{request.user}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">خروج</a>
+        </li>
+
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">ورود</a>
+        </li>
+        {% endif %}
+      </ul>
+      <form class="d-flex" method="GET" action="{% url 'home' %}">
+        <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="q">
+        <button  class="btn btn-outline-light" type="submit">جستجو</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<br>

@@ -1,0 +1,24 @@
+{% for room in rooms %}
+<div style="direction:rtl;">
+<div class="shads">
+<div class="alert alert-info" role="alert" style="background-color: #00ADB5">
+<!-- {{room.id}} . -->
+<h4 class="alert-heading" ><h3><a href="{% url 'room' room.id %}" style="color: #222831">{{room.name}}</h3></a>
+{% if request.user == room.host %}
+<p style="color: #222831"><a href="{% url 'update-room' room.id %}">ویرایش</a>
+<a href="{% url 'delete-room' room.id %}">| پاک کردن</a></p>
+
+{% endif %}
+
+{% if room.deprecation != null %}
+<p style="color: #4d5666">{{room.deprecation}}</p>
+{% endif %}
+<hr>
+<p class="mb-0"><b><a href="{% url 'userProfile' room.host.id %}"><span>@{{room.host.username}} </span></b></a>
+ {{room.participants.all.count}} پیوست <a href="{% url 'home' %}?q={{room.topics.name}}"><small style="margin-left:5px;color:#222831"><b> {{room.topics.name}}</b></small></h4></a></p>
+</div>
+                    
+                    
+</div>
+</div>
+{% endfor %}

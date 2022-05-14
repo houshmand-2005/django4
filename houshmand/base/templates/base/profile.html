@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+<div class="row" style="direction:rtl;">
+    <div class="col-3">
+        {% include 'base/topic_component.html' %}
+    </div>
+    <div class="col-6">        <h2 style="color:azure" >اتاق های {{user.username}} </h2>      
+        {% if request.user == user %}
+        <span style="color:#00FFF5">
+            
+        <a href="{% url 'update-user' %}">ویرایش حساب کاربری</a> 
+    </span>
+    {% endif %}
+
+        {% include 'base/feed_component.html' %}</div>
+    <div class="col-3" style="color:azure">
+        {% include 'base/activity_component.html' %}</div>
+  </div>
+
+
+{% endblock content %}

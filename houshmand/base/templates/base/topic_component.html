@@ -1,0 +1,11 @@
+<div class="list-group" style="color:azure;margin-left: 4px;direction: rtl;">
+    <button type="button" class="list-group-item list-group-item-action " style="background-color:#393E46;color:aliceblue" aria-current="true">
+      موضوعات
+    </button>
+            <a href="{% url 'home' %}"><button type="button" class="list-group-item list-group-item-action"  style="background-color:#00ADB5" >همه</button></a>
+    {% for topic in topics %}
+    <a href="{% url 'home' %}?q={{topic.name}}"><button type="button" class="list-group-item list-group-item-action"  style="background-color:#00ADB5">{{topic.name}}<span class="topic_count">({{topic.room_set.all.count}})</span></button></a>
+    {% endfor %}
+  </div>
+  <br>
+  <a href="{% url 'topics'%}"><button type="button" class="btn" style="color: #00FFF5;" >دیدن همه موضوعات</button></a>

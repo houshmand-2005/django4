@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+{% block content %}
+<body>
+<div style="direction:rtl;">
+  
+{% if Page != login %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-5">
+      <h2 style="color:azure"> ورود:</h2>
+      <form method="POST" action="">
+      <div class="input-group mb-3">
+        {% csrf_token %}
+  <input type="text"  class="form-control" placeholder="Username" aria-label="Username" name="username"></div>
+  <div class="input-group mb-3">
+<input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password"></div>
+<div class="vstack gap-2 col-md-2 mx-auto">
+  <button type="submit" value="Login" class="btn btn-secondary"> ورود</button>
+  </div>
+</form>
+  <br>
+  <div style="color:azure">
+  <small>حساب کاربری ندارید؟ <span style="color:#00FFF5"><a href="{% url 'register' %}"> ساخت یک حساب کاربری</a></small><br></span>
+  <span style="color:#00FFF5"><a href="{% url 'reset_password' %}"><small>
+  فراموشی پسورد؟</small></a></div></span>
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
+{% else %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-5">
+      <h2 style="color:azure">ثبت نام:</h2>
+      <form method="POST" action="">
+      <div class="input-group mb-3">
+        {% csrf_token %}
+        <div style="color:azure">
+        {{form.as_p}}
+      </div>
+        <div class="vstack gap-2 col-md-2 mx-auto">
+
+          <button type="submit" value="Login" class="btn btn--dark">ثبت نام</button>
+          </div>
+        </form>
+        <br>
+        <p>..</p>
+  <div style="color:azure">
+  <small>ایا ثبت نام کرده اید؟<span style="color:#00FFF5"><a href="{% url 'login' %}">ورود</a></small><br></span>
+  <span style="color:#00FFF5"><a href="{% url 'reset_password' %}"><small>
+فراموشی رمز عبور؟</small></a></span></div>
+</div>
+    </div>
+    <div class="col">
+    </div>
+  </div></div>
+{% endif %}
+</div>
+
+</body>
+
+{% endblock content %}

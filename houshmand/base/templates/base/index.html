@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>یادگیری</title>
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'indexpage' %}"><img src="{% static 'img/logo.svg' %}" alt=""width="68" height="51" alt=""></a>
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">ورود به بخش اتاق ها</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'artic' %}">بخش نقشه راه</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<body style="background-color:#222831;">
+  
+
+<br>
+<div style="direction:rtl;">
+  <div class="w-full px-4">
+    <div class="hero-content wow fadeInUp mx-auto max-w-[780px] text-center" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s;">
+      <h1 class="mb-8 text-3xl font-bold leading-snug text-white sm:text-4xl sm:leading-snug md:text-[45px] md:leading-snug">
+        نقشه راه خود را پیدا کنید!
+        </h1>
+</div>
+<img src="{% static 'img/banner.jpg'%}" class="img-fluid" alt="Responsive image">
+<br>
+<div class="container">
+  <div class="row">
+    {% for article in articles %}
+    <div class="col">
+ <div class="card" style="width: 18rem;margin-top: 10px;">
+  <img src="{{article.thumbnail.url}}" class="card-img-top" alt="{{ article.title }}" height="248" width="248">
+  <div class="card-body">
+    <h5 class="card-title">{{ article.title }}</h5>
+    <p class="card-text">{{ article.description|truncatewords:30 }}</p>
+    <a href="{% url 'artic' %}#{{ article.title }}" class="btn btn-primary">نقشه راه {{ article.title }}</a>
+  </div>
+</div>
+    </div>
+    {% endfor %}
+  </div>  </div></div>
+<br>
+<hr>
+<center>
+  <h3 style="color: aliceblue">آیا سوال داری ؟ آیا در مسیر خود دچار تردید شده ای؟</h3>
+  <h3 style="color: aliceblue">پس حتما به بخش اتاق ها برو و سوال خودت رو مطرح کن!</h3>
+  <br>
+<a href="{% url 'home' %}"><button type="button" class="btn"
+  style="color: #00FFF5;background-color: black;">ورود به بخش اتاق ها</button></a>
+  <center>
+<br>
+    <hr>
+    <center>
+  <h1 style="color: aliceblue">درباره ما</h1><br>
+  <a href="{% url 'aboutus' %}"><button type="button" class="btn"
+    style="color: #00FFF5;background-color: rgb(0, 0, 0);">درباره ما!</button></a>
+</center>
+<br>
+<div class="text-center p-3" style="background-color:#212529;color: azure">
+  © 2022 Copyright:
+  <span style="color: #00ADB5;"><a href="{% url 'indexpage' %}">اتاق یادگیری</a></span>
+</div>
+</div>
+</body>
+</html>
